@@ -1,4 +1,4 @@
-package _714220054
+package model
 
 import (
 	"time"

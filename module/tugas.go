@@ -1,4 +1,4 @@
-package _714220054
+package module
 
 import (
 	"context"
@@ -30,8 +30,8 @@ func InsertOneDoc(db string, collection string, doc interface{}) (insertedID int
 	return insertResult.InsertedID
 }
 
-func InsertRapatMakrab(long float64,lat float64, ukm string, alamat string, kepada Undangan_Rapat, waktu Tanggal) (InsertedID interface{}) {
-	var makrab Rapat_Makrab
+func InsertRapatMakrab(long float64,lat float64, ukm string, alamat string, kepada model.Undangan_Rapat, waktu model.Tanggal) (InsertedID interface{}) {
+	var makrab model.Rapat_Makrab
 	makrab.Latitude = long
 	makrab.Longitude = lat
 	makrab.UKM = ukm
@@ -41,7 +41,7 @@ func InsertRapatMakrab(long float64,lat float64, ukm string, alamat string, kepa
 	return InsertOneDoc("undangan_rapat", "rapat_makrab", makrab)
 }
 
-func GetAllRapatMakrab() (data []Rapat_Makrab) {
+func GetAllRapatMakrab() (data []model.Rapat_Makrab) {
 	undangan_rapat := MongoConnect("undangan_rapat").Collection("rapat_makrab")
 	filter := bson.M{}
 	cursor, err := undangan_rapat.Find(context.TODO(), filter)
@@ -56,14 +56,14 @@ func GetAllRapatMakrab() (data []Rapat_Makrab) {
 }
 
 func InsertTanggal(waktu time.Time) (InsertedID interface{}){
-	var tgl Tanggal
+	var tgl model.Tanggal
 	tgl.Waktu = waktu.UTC()
 
 	return InsertOneDoc("undangan_rapat", "rapat_makrab", tgl)
 }
 
 
-func GetAllTanggal() (data []Tanggal) {
+func GetAllTanggal() (data []model.Tanggal) {
 	undangan_rapat := MongoConnect("undangan_rapat").Collection("rapat_makrab")
 	filter := bson.M{}
 	cursor, err := undangan_rapat.Find(context.TODO(), filter)
@@ -78,14 +78,14 @@ func GetAllTanggal() (data []Tanggal) {
 }
 
 func InsertUndanganRapat(kepada string, divisi string) (InsertedID interface{}){
-	var undangan Undangan_Rapat
+	var undangan model.Undangan_Rapat
 	undangan.Kepada = kepada
 	undangan.Divisi = divisi
 
 	return InsertOneDoc("undangan_rapat", "rapat_makrab", undangan)
 }
 
-func GetAllUndanganRapat() (data []Tanggal) {
+func GetAllUndanganRapat() (data []model.Tanggal) {
 	undangan_rapat := MongoConnect("undangan_rapat").Collection("rapat_makrab")
 	filter := bson.M{}
 	cursor, err := undangan_rapat.Find(context.TODO(), filter)
