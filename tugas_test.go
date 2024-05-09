@@ -14,26 +14,26 @@ func TestInsertRapatMakrab(t *testing.T) {
 	long := 98.345345
 	lat := 123.561651
 	ukm := "Logic Coffee"
-	alamat := "Cafe Logic"
+	alamat := "Pendopo"
 	kepada := model.Undangan_Rapat{
-		Kepada : "Irfanto",
+		Kepada : "Seluruh Anggota Logic",
 	}
 	waktu := model.Tanggal{
-		Waktu : "senin, 09-10-2024",
+		Waktu : "Minggu, 16-04-2024",
 	}
 	hasil:= module.InsertRapatMakrab(long ,lat , ukm , alamat , kepada , waktu)
 	fmt.Println(hasil)
 }
 
 func TestInsertTanggal(t *testing.T) {
-	waktu := "senin, 09-10-2024"
+	waktu := "Minggu, 16-04-2024"
 	hasil := module.InsertTanggal(waktu) // Memanggil fungsi InsertTanggal dari tugas.go
 	fmt.Println(hasil)
 }
 
 func TestInsertUndanganRapat(t *testing.T){
-    kepada := "Irfanto"
-	divisi := "Logistik 4"
+    kepada := "Seluruh Anggota Logic"
+	divisi := "Anggota"
 	hasil:=module.InsertUndanganRapat(kepada, divisi)
 	fmt.Println(hasil)
 }
