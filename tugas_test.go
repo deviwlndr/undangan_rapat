@@ -18,18 +18,18 @@ func TestInsertRapatMakrab(t *testing.T) {
 	kepada := model.Undangan_Rapat{
 		Kepada : "Seluruh Anggota Logic",
 	}
-	// waktu := model.Tanggal{
-	// 	Waktu : "Minggu, 16-04-2024",
-	// }
-	hasil:= module.InsertRapatMakrab(long ,lat , ukm , alamat , kepada )
+	waktu := model.Tanggal{
+		Waktu : "Minggu, 16-04-2024",
+	}
+	hasil:= module.InsertRapatMakrab(long ,lat , ukm , alamat , kepada , waktu)
 	fmt.Println(hasil)
 }
 
-// func TestInsertTanggal(t *testing.T) {
-// 	waktu := "Minggu, 16-04-2024"
-// 	hasil := module.InsertTanggal(waktu) // Memanggil fungsi InsertTanggal dari tugas.go
-// 	fmt.Println(hasil)
-// }
+func TestInsertTanggal(t *testing.T) {
+	waktu := "Minggu, 16-04-2024"
+	hasil := module.InsertTanggal(waktu) // Memanggil fungsi InsertTanggal dari tugas.go
+	fmt.Println(hasil)
+}
 
 func TestInsertUndanganRapat(t *testing.T){
     kepada := "Seluruh Anggota Logic"
