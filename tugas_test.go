@@ -14,24 +14,24 @@ func TestInsertRapatMakrab(t *testing.T) {
 	ukm := "Logic Coffee"
 	alamat := "Cafe Logic"
 	kepada := model.Undangan_Rapat{
-		Kepada : "Devi Wulandari",
+		Kepada : "Irfanto",
 	}
 	waktu := model.Tanggal{
-		Waktu : time.Date(2024, time.March, 30, 10, 0, 0, 0, time.UTC),
+		Waktu : time.Date(2024, time.April, 15, 10, 0, 0, 0, time.UTC),
 	}
 	hasil:= module.InsertRapatMakrab(long ,lat , ukm , alamat , kepada , waktu)
 	fmt.Println(hasil)
 }
 
 func TestInsertTanggal (t *testing.T){
-    waktu := time.Date(2024, time.March, 30, 10, 0, 0, 0, time.UTC)
+    waktu := time.Date(2024, time.April, 15, 10, 0, 0, 0, time.UTC)
 	hasil:=module.InsertTanggal(waktu)
 	fmt.Println(hasil)
 }
 
 func TestInsertUndanganRapat(t *testing.T){
-    kepada := "Devi Wulandari"
-	divisi := "Humas"
+    kepada := "Irfanto"
+	divisi := "Logistik 4"
 	hasil:=module.InsertUndanganRapat(kepada, divisi)
 	fmt.Println(hasil)
 }
