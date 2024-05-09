@@ -3,9 +3,11 @@ package _714220054
 import (
 	"fmt"
 	"testing"
-	"time"
+	//"time"
 	"github.com/deviwlndr/undangan_rapat/model"
 	"github.com/deviwlndr/undangan_rapat/module"
+
+	
 )
 
 func TestInsertRapatMakrab(t *testing.T) {
@@ -17,15 +19,15 @@ func TestInsertRapatMakrab(t *testing.T) {
 		Kepada : "Irfanto",
 	}
 	waktu := model.Tanggal{
-		Waktu : time.Date(2024, time.April, 15, 10, 0, 0, 0, time.UTC),
+		Waktu : "senin, 09-10-2024",
 	}
 	hasil:= module.InsertRapatMakrab(long ,lat , ukm , alamat , kepada , waktu)
 	fmt.Println(hasil)
 }
 
-func TestInsertTanggal (t *testing.T){
-    waktu := time.Date(2024, time.April, 15, 10, 0, 0, 0, time.UTC)
-	hasil:=module.InsertTanggal(waktu)
+func TestInsertTanggal(t *testing.T) {
+	waktu := "senin, 09-10-2024"
+	hasil := module.InsertTanggal(waktu) // Memanggil fungsi InsertTanggal dari tugas.go
 	fmt.Println(hasil)
 }
 

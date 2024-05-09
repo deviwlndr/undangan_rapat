@@ -1,7 +1,7 @@
 package model
 
 import (
-	"time"
+	//"time"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
@@ -12,7 +12,7 @@ type Undangan_Rapat struct {
 }
 
 type Tanggal struct {
-	Waktu time.Time          `bson:"waktu,omitempty" json:"waktu,omitempty"`
+	Waktu string          `bson:"waktu,omitempty" json:"waktu,omitempty"`
 }
 
 type Rapat_Makrab struct {

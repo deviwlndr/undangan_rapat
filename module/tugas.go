@@ -7,7 +7,7 @@ import (
 	"github.com/deviwlndr/undangan_rapat/model"
 	//"go.mongodb.org/mongo-driver/bson/primitive"
 	//"os"
-	"time"
+	//"time"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -55,11 +55,10 @@ func GetAllRapatMakrab() (data []model.Rapat_Makrab) {
 	return
 }
 
-func InsertTanggal(waktu time.Time) (InsertedID interface{}){
-	var tgl model.Tanggal
-	tgl.Waktu = waktu.UTC()
-
-	return InsertOneDoc("undangan_rapat", "rapat_makrab", tgl)
+func InsertTanggal(waktu string) (InsertedID interface{}){
+	var undangan model.Tanggal
+	undangan.Waktu = waktu
+	return InsertOneDoc("undangan_rapat", "rapat_makrab", waktu)
 }
 
 
@@ -85,7 +84,7 @@ func InsertUndanganRapat(kepada string, divisi string) (InsertedID interface{}){
 	return InsertOneDoc("undangan_rapat", "rapat_makrab", undangan)
 }
 
-func GetAllUndanganRapat() (data []model.Tanggal) {
+func GetAllUndanganRapat() (data []model.Undangan_Rapat) {
 	undangan_rapat := MongoConnect("undangan_rapat").Collection("rapat_makrab")
 	filter := bson.M{}
 	cursor, err := undangan_rapat.Find(context.TODO(), filter)
