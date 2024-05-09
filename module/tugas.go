@@ -56,18 +56,22 @@ func GetAllRapatMakrab() (data []model.Rapat_Makrab) {
 }
 
 func InsertTanggal(waktu string) (InsertedID interface{}){
-	var undangan model.Tanggal
-	undangan.Waktu = waktu
-	return InsertOneDoc("undangan_rapat", "rapat_makrab", waktu)
+	// Buat objek model.Tanggal dari nilai waktu
+	tanggal := model.Tanggal{
+		Waktu: waktu,
+	}
+	// Insert objek model.Tanggal ke koleksi "rapat_makrab"
+	return InsertOneDoc("undangan_rapat", "rapat_makrab", tanggal)
 }
 
 
 func GetAllTanggal() (data []model.Tanggal) {
+	// Dapatkan semua data tanggal dari koleksi "rapat_makrab"
 	undangan_rapat := MongoConnect("undangan_rapat").Collection("rapat_makrab")
 	filter := bson.M{}
 	cursor, err := undangan_rapat.Find(context.TODO(), filter)
 	if err != nil {
-		fmt.Println("GetALLData :", err)
+		fmt.Println("GetAllTanggal :", err)
 	}
 	err = cursor.All(context.TODO(), &data)
 	if err != nil {
